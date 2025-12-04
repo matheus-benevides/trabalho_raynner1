@@ -1,0 +1,71 @@
+.escondido {
+    display: none;
+}
+.contaudo-principal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: #f7f7f7;
+}
+
+form{
+    width: 80%;
+    height: 75%;
+    overflow: auto;
+    box-shadow: -3px 2px 2px rgb(102, 255, 0);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 15px;
+}
+.form header{
+    width: 100%;
+    position: fixed;
+}
+fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    border: none;
+}
+legend{
+    color: rgb(102, 255, 0);
+    font-weight: bold;
+}
+.caixa-input{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+}
+
+.caixa-input input, .caixa-input select{
+    padding: 7px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    outline: none;
+    background: #f7f7f7;
+
+    &:focus{
+        border-color:rgb(102,255,0);
+    }
+
+    &::placeholder{
+        color: #d1d1d1;
+    }
+}
+
+.caixa-btn button{
+    cursor: pointer;
+    padding: 7px 10px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    background: rgb(102, 255, 0);
+}

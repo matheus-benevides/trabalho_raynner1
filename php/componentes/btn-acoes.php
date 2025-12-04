@@ -1,0 +1,1 @@
+<td><button onclick="window.location.href='deletar.php?id=<?php echo $linha[0]?>'">🗑️</button></td>

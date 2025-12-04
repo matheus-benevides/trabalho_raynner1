@@ -1,0 +1,32 @@
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 7vh;
+    background: #F9F9F9;
+    position: fixed;
+    border-bottom: 1px solid rgb(102, 255, 0);
+}
+
+.nav-header{
+    color: rgb(102, 255, 0);
+    font-size: 20px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #000;
+    border-radius: 10px;
+
+    &:hover{
+        background: rgb(102, 255, 0);
+        color: #FFF;
+    }
+}
+
+.ativo{
+    background: rgba(102, 255, 0, 0.5);
+}

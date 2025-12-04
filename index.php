@@ -107,7 +107,8 @@
 
                 $ultimoIDPessoa = $con->insert_id;
 
-                $insertEndereco = "INSERT INTO pessoa_enderecos(
+                for ($i = 0; $i < count($pessoa_endereco_end); $i++) {
+                    $insertEndereco = "INSERT INTO pessoa_enderecos(
                         pessoa_endereco_id_pessoa,
                         pessoa_endereco_end,
                         pessoa_endereco_num,
@@ -118,34 +119,37 @@
                         pessoa_endereco_tipo
                     )VALUES(
                         '$ultimoIDPessoa',
-                        '$pessoa_endereco_end',
-                        '$pessoa_endereco_num',
-                        '$pessoa_bairro',
-                        '$pessoa_cidade',
-                        '$pessoa_cep',
-                        '$pessoa_obs',
-                        '$pessoa_endereco_tipo'
+                        '$pessoa_endereco_end[$i]',
+                        '$pessoa_endereco_num[$i]',
+                        '$pessoa_bairro[$i]',
+                        '$pessoa_cidade[$i]',
+                        '$pessoa_cep[$i]',
+                        '$pessoa_obs[$i]',
+                        '$pessoa_endereco_tipo[$i]'
                     );";
 
-                mysqli_query($con, $insertEndereco);
+                    mysqli_query($con, $insertEndereco);
+                }
 
                 $pessoa_contas_banco = $_POST['banco'];
                 $pessoa_contas_agencia = $_POST['agencia'];
                 $pessoa_contas_gerente = $_POST['gerente'];
 
-                $insertContas = "INSERT INTO pessoa_contas_bancarias(
-                    pessoa_id,
-                    pessoa_contas_banco,
-                    pessoa_contas_agencia,
-                    pessoa_contas_gerente
-                )VALUES(
-                    '$ultimoIDPessoa',
-                    '$pessoa_contas_banco',
-                    '$pessoa_contas_agencia',
-                    '$pessoa_contas_gerente'
-                );";
+                for ($i = 0; $i < count($pessoa_contas_banco); $i++) {
+                    $insertContas = "INSERT INTO pessoa_contas_bancarias(
+                        pessoa_id,
+                        pessoa_contas_banco,
+                        pessoa_contas_agencia,
+                        pessoa_contas_gerente
+                    )VALUES(
+                        '$ultimoIDPessoa',
+                        '$pessoa_contas_banco[$i]',
+                        '$pessoa_contas_agencia[$i]',
+                        '$pessoa_contas_gerente[$i]'
+                    );";
 
-                mysqli_query($con, $insertContas);
+                    mysqli_query($con, $insertContas);
+                }
 
                 echo "<script>alert('Cadastrado com sucesso!')</script>";
             }
@@ -227,19 +231,19 @@
                 </legend>
                 <div class="caixa-input">
                     <label for="endereco">Rua:</label>
-                    <input type="text" name="endereco" id="endereco" placeholder="R. Exemplo">
+                    <input type="text" name="endereco[]" id="endereco" placeholder="R. Exemplo">
                     <label for="numero">Número:</label>
-                    <input type="number" name="numero" id="numero" placeholder="000">
+                    <input type="number" name="numero[]" id="numero" placeholder="000">
                     <label for="bairro">Bairro:</label>
-                    <input type="text" name="bairro" id="bairro" placeholder="Av. Dos Exemplos">
+                    <input type="text" name="bairro[]" id="bairro" placeholder="Av. Dos Exemplos">
                     <label for="cidade">Cidade:</label>
-                    <input type="text" name="cidade" id="cidade" placeholder="Cidade">
+                    <input type="text" name="cidade[]" id="cidade" placeholder="Cidade">
                     <label for="cep">CEP:</label>
-                    <input type="text" name="cep" id="cep" placeholder="00000-000">
+                    <input type="text" name="cep[]" id="cep" placeholder="00000-000">
                     <label for="obs">Observação:</label>
-                    <input type="text" name="obs" id="obs" placeholder="Insira a Observação">
+                    <input type="text" name="obs[]" id="obs" placeholder="Insira a Observação">
                     <label for="tipo_endereco">Tipo de Endereço:</label>
-                    <select name="tipo_endereco" id="tipo_endereco">
+                    <select name="tipo_endereco[]" id="tipo_endereco">
                         <option value="sem Valor" disabled selected>Selecione o Tipo de Endereço</option>
                         <?php
                         require 'php/conexao.php';
@@ -254,29 +258,29 @@
                         ?>
                     </select>
                 </div>
-                <div class="caixa-btn">
-                    <button type="button">Add Endereço</button>
-                </div>
             </fieldset>
+            <div class="caixa-btn">
+                <button type="button" onclick="addEndereco()">Add Endereço</button>
+            </div>
 
             <fieldset class="dados-ban">
                 <legend>Dados Bancarios</legend>
                 <div class="caixa-input">
                     <label for="banco">Banco:</label>
-                    <input type="text" name="banco" id="banco" placeholder="Banco Exemplo">
+                    <input type="text" name="banco[]" id="banco" placeholder="Banco Exemplo">
                     <label for="agencia">Agência:</label>
-                    <input type="text" name="agencia" id="agencia" placeholder="Agência 001">
+                    <input type="text" name="agencia[]" id="agencia" placeholder="Agência 001">
                     <label for="gerente">Nome do Gerente:</label>
-                    <input type="text" name="gerente" id="gerente" placeholder="Nome Gerente Da Silva">
+                    <input type="text" name="gerente[]" id="gerente" placeholder="Nome Gerente Da Silva">
                 </div>
                 <div class="caixa-input" style="display: none;">
                     <label for="data">Data Cadastro:</label>
                     <input type="date" name="data" id="data" value="<?php echo date('Y-m-d') ?>">
                 </div>
-                <div class="caixa-btn">
-                    <button type="button" onclick="addConta()">Add Conta</button>
-                </div>
             </fieldset>
+            <div class="caixa-btn">
+                <button type="button" onclick="addConta()">Add Conta</button>
+            </div>
             <div class="caixa-btn">
                 <button type="submit">Cadastrar</button>
             </div>

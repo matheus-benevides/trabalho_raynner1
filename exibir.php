@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Pessoas</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/tabela.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -138,7 +138,51 @@
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan=10>Nenhuma Pessoa Cadastrada!</td></tr>";
+                        echo "<tr><td colspan=6>Nenhuma Pessoa Cadastrada!</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Documentos</h3>
+        <div class="tabela-caixa">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>RG</th>
+                    <th>CPF</th>
+                    <th>Titulo</th>
+                    <th>CNH</th>
+                    <th>CNPJ</th>
+                    <th>Insc. Mun</th>
+                    <th>Insc. Est</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody>
+                    <?php
+                    require "php/conexao.php";
+
+                    $coletando = "SELECT * FROM pessoa_documento";
+                    $executando = mysqli_query($con, $coletando);
+
+                    if (mysqli_num_rows($executando) > 0) {
+                        while ($linha = mysqli_fetch_array($executando)) {
+                            echo "<tr>";
+                            echo "<td>" . $linha[0] . "</td>";
+                            echo "<td>" . $linha[1] . "</td>";
+                            echo "<td>" . $linha[2] . "</td>";
+                            echo "<td>" . $linha[3] . "</td>";
+                            echo "<td>" . $linha[4] . "</td>";
+                            echo "<td>" . $linha[5] . "</td>";
+                            echo "<td>" . $linha[6] . "</td>";
+                            echo "<td>" . $linha[7] . "</td>";
+                            // echo "<td>" . "<button onclick='window.location.href="."'deletar.php?id=$linha[0]'"."'>🗑️</button>" . "</td>";
+                            include 'php/componentes/btn-acoes.php';
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan=9>Nenhuma Pessoa Cadastrada!</td></tr>";
                     }
                     ?>
                 </tbody>

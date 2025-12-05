@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Pessoas</title>
 
-    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
+    
 
 </head>
 
@@ -179,14 +179,14 @@
                     </select>
                 </div>
                 <div class="caixa-input">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
-                    <label for="rg">RG:</label>
-                    <input type="text" id="rg" name="rg" placeholder="55.555.119-2">
-                    <label for="titulo">Titulo de Eleitor:</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="000000000-00">
-                    <label for="cnh">CNH:</label>
-                    <input type="text" id="cnh" name="cnh" placeholder="00000000">
+                    <label for="cpf" class="info1">CPF:</label>
+                    <input type="text" class="info1" id="cpf" name="cpf" placeholder="000.000.000-00">
+                    <label for="rg" class="info1">RG:</label>
+                    <input type="text" class="info1" id="rg" name="rg" placeholder="55.555.119-2">
+                    <label for="titulo" class="info1">Titulo de Eleitor:</label>
+                    <input type="text" class="info1" id="titulo" name="titulo" placeholder="000000000-00">
+                    <label for="cnh" class="info1">CNH:</label>
+                    <input type="text" class="info1" id="cnh" name="cnh" placeholder="00000000">
                     <label for="cnpj" class="escondido">CNPJ:</label>
                     <input class='escondido' type="text" name="cnpj" id="cnpj" placeholder="CNPJ">
                     <label for="insc_est" class="escondido">Inscrição Estadual:</label>

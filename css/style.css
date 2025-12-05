@@ -1,105 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #f4f4f4;
+}
+
+.contaudo-principal {
+    width: 100%;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f7f7;
+    flex-direction: column;
+}
+
+header {
+    border-bottom: 2px solid rgb(102, 255, 0);
+    border-radius: 5px;
+}
+
+form {
+    width: 80%;
+    max-width: 900px;
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(102, 255, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow-y: auto;
+}
+
+fieldset {
+    border: 2px solid #dcdcdc;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: 0.3s;
+
+    &:hover {
+        border-color: rgb(102, 255, 0);
+    }
+}
+
+legend {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(102, 255, 0);
+}
+
+.caixa-input {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.caixa-input input,
+.caixa-input select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    transition: 0.2s border-color, 0.2s background;
+
+    &:placeholder {
+        color: #bdbdbd;
+    }
+
+    &:focus {
+        border-color: rgb(102, 255, 0);
+        background: #f5fff2;
+    }
+
+}
+
+.caixa-input button {
+    background: #ff0026;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+
+    &:hover {
+        background: #c7001e;
+    }
+}
+
+.caixa-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &:last-of-type {
+        border-top: 2px solid rgb(102, 255, 0);
+        padding: 15px;
+        border-radius: 5px;
+    }
+}
+
+.caixa-btn button {
+    padding: 10px 20px;
+    background: rgb(102, 255, 0);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        background: #32b300;
+    }
+}
+
 .escondido {
     display: none;
-}
-.contaudo-principal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    background: #f7f7f7;
-    gap: 50px;
-}
-
-form{
-    width: 80%;
-    height: 75%;
-    overflow: auto;
-    box-shadow: -3px 2px 2px rgb(102, 255, 0);
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    gap: 15px;
-}
-.form header{
-    width: 100%;
-    position: fixed;
-}
-fieldset{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    border: none;
-    gap: 15px;
-}
-legend{
-    color: rgb(102, 255, 0);
-    font-weight: bold;
-}
-.caixa-input{
-    display: flex;
-    flex-direction: column;
-}
-
-.caixa-input input, .caixa-input select{
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid #fff;
-    outline: none;
-    background: #f7f7f7;
-
-    &:focus{
-        color: #FFF;
-        background: #333;
-        border-color:rgb(102,255,0);
-    }
-
-    &::placeholder{
-        color: #d1d1d1;
-    }
-}
-
-.caixa-btn button{
-    cursor: pointer;
-    padding: 7px 10px;
-    font-weight: bold;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    background: rgb(102, 255, 0);
-}
-
-.tabela-caixa{
-    width: 90%;
-    border-radius: 15px;
-    height: auto;
-    min-height: 120px;
-    overflow: auto;
-    box-shadow: -3px 2px 2px rgb(102, 255, 0);
-
-    &:last-of-type{
-        margin-bottom: 25px;
-    }
-
-}
-
-table{
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-th{
-    background: #333;
-    padding: 10px;
-    color: rgb(102, 255, 0);
-}
-
-tr:hover{
-    background: #FFF;
 }
